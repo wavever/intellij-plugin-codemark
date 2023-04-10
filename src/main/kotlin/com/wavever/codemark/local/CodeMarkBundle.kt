@@ -1,4 +1,4 @@
-package com.github.wavever.intellijplugincodemark
+package com.wavever.codemark.local
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls
@@ -7,7 +7,7 @@ import org.jetbrains.annotations.PropertyKey
 @NonNls
 private const val BUNDLE = "messages.MyBundle"
 
-object MyBundle : DynamicBundle(BUNDLE) {
+object CodeMarkBundle : DynamicBundle(BUNDLE) {
 
     @Suppress("SpreadOperator")
     @JvmStatic

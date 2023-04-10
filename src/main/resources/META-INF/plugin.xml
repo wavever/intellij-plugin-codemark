@@ -1,18 +1,37 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.wavever.intellijplugincodemark</id>
-    <name>intellij-plugin-codemark Template</name>
+    <id>com.wavever.codemark</id>
+    <name>CodeMark</name>
     <vendor>wavever</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <resource-bundle>messages.CodeMarkBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.wavever.intellijplugincodemark.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <!--<projectService serviceImplementation="com.wavever.codemark.data.CodeMarksManagerImpl"
+                        serviceInterface=""/>-->
+        <!--<toolWindow factoryClass="com.wavever.codemark.ui.CodeMarkToolWindowFactory"
+                    anchor="right"
+                    secondary="false"
+                    id="CodeMarkToolWindow"/>-->
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.wavever.intellijplugincodemark.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
-    </applicationListeners>
+    <!--<applicationListeners>
+        <listener class="com.wavever.codemark.listener.CodeMarkFrameStateListener"
+                  topic="com.intellij.ide.FrameStateListener"/>
+    </applicationListeners>-->
+
+    <actions>
+        <group id="CodeMarkEditMenuAction"
+               popup="true"
+               icon="/icons/code_mark.svg"
+               text="CodeMark">
+            <add-to-group group-id="EditMenu" anchor="after" relative-to-action="Bookmarks"/>
+            <action id="com.wavever.codemark.EditMenuCodeMarkAddAction"
+                    class="com.wavever.codemark.action.EditMenuAddAction"
+                    description="Add a codemark to current line"
+                    text="Add"/>
+        </group>
+    </actions>
 </idea-plugin>
